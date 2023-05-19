@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do</title>
+    <script src="./vendors/jquery.js"></script>
+    <script src="./scripts/client.js"></script>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>To-Do List</title>
 </head>
 <body>
     <header>
@@ -12,13 +15,24 @@
 
     </header>
     <main>
+
+        <h2>Add to your list</h2>
+
         <section id="inputs">
+
+            <input id="task-body" type="text">
+            <button id="submit">Submit</button>
 
         </section>
 
         <section id="display-tasks">
 
+            <table>
+                <tbody id="display-tasks"></tbody>
+            </table>
+
         </section>
+
     </main>
 
     <footer>
