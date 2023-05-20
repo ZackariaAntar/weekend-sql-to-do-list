@@ -13,14 +13,80 @@ function onReady(){
 }
 
 function getTasks(){
+    $.ajax({
+        method: 'GET',
+        url: '/task'
+    }).then(function(response){
+        console.log('got tasks');
+        renderToDOM(response)
+    }).catch(function(error){
+        console.log('Whoops, failed to get tasks', error);
+    })
 
 }
 
+function postTask(){
+    const taskToAdd = $('#task-body').val()
+    $.ajax({
+		method: "POST",
+		url: "/task",
+        data: {taskToAdd},
+
+	})
+		.then(function (response) {
+			console.log("added tasks");
+			getTasks();
+		})
+		.catch(function (error) {
+			console.log("Whoops, failed to post tasks", error);
+		});
+}
+
 function updateTask(){
+    let targetId =$(this).closest("tr").data("id")
+
+    $.ajax({
+        method: 'PUT',
+        url:`/task/${targetId}`
+    }).then(function(response){
+        getTasks()
+    }).catch(function (error){
+        console.log('Error', error);
+
+    })
+
 
 }
 
 function deleteTask(){
+    let targetId = $(this).closest("tr").data("id");
+    $.ajax({
+        method: "DELETE",
+        url: `/task/${targetId}`,
+    })
+        .then(function (response) {
+            getTasks();
+        })
+        .catch(function (error) {
+            console.log("Error", error);
+        });
+
+
+
+}
+
+function renderToDOM(storedTasks){
+    $("#display-tasks").empty();
+    for (let task of storedTasks){
+        $("#display-tasks").append(`
+        <tr class="task-row" data-id=${task.id}>
+        <td>${task.task_body}</td>
+        <td><button class="edit-btn">✅</button><td>
+        <td><button class="delete-btn">❌</button><td>
+        </tr>
+        `);
+
+    }
 
 }
 

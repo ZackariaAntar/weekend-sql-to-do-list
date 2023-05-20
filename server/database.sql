@@ -12,6 +12,11 @@ CREATE TABLE "weekend-to-do-app" (
     );
 
 
+SELECT * FROM "weekend-to-do-app" ORDER BY "id";
+
+
+
+
 
 
 
