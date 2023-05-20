@@ -1,6 +1,6 @@
 // !!!! /task ROUTE!!
 
-$document.ready(onReady)
+$(document).ready(onReady)
 
 
 function onReady(){
@@ -30,7 +30,7 @@ function postTask(){
     $.ajax({
 		method: "POST",
 		url: "/task",
-        data: {taskToAdd},
+        data: {task:taskToAdd},
 
 	})
 		.then(function (response) {
@@ -77,6 +77,7 @@ function deleteTask(){
 
 function renderToDOM(storedTasks){
     $("#display-tasks").empty();
+    $("#task-body").val('');
     for (let task of storedTasks){
         $("#display-tasks").append(`
         <tr class="task-row" data-id=${task.id}>

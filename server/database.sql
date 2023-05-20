@@ -14,7 +14,10 @@ CREATE TABLE "weekend-to-do-app" (
 
 SELECT * FROM "weekend-to-do-app" ORDER BY "id";
 
+SELECT * FROM "weekend-to-do-app" WHERE "id" = $1;
 
+INSERT INTO "weekend-to-do-app" ("task_body")
+VALUES ($1);
 
 
 

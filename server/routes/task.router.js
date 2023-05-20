@@ -11,24 +11,20 @@ router.get('/', (req, res) => {
         console.log('Opps', error);
         res.sendStatus(500)
     })
-
 })
 
 router.get('/:id', (req, res) => {
     let idToGet = req.params.id;
-    let queryText = `SELECT * FROM "weekend-to-do-app" WHERE "id" = $1`;
+    let queryText = `SELECT * FROM "weekend-to-do-app" WHERE "id" = $1;`;
     pool.query(queryText, [idToGet]).then((result)=>{
         console.log('got ids');
         res.send(result.rows);
     })
-
 })
 
 
-
-
 router.post('/', (req, res) => {
-    let taskObj = req.body;
+    let taskObj = req.body.task;
     let queryText = `INSERT INTO "weekend-to-do-app" ("task_body")
                    VALUES ($1);
                    `;
@@ -41,10 +37,6 @@ router.post('/', (req, res) => {
     })
 })
 
-
-
-
-
 router.delete('/:id', (req, res) => {
     let idToGet = req.params.id;
 	let queryText = `DELETE FROM "weekend-to-do-app" WHERE "id" = $1`;
@@ -54,9 +46,8 @@ router.delete('/:id', (req, res) => {
         console.log(error);
         res.sendStatus(500)
     })
-
-
 })
+
 router.put('/:id', (req, res) => {
     let idToGet = req.params.id;
 	let queryText = `UPDATE "weekend-to-do-app" SET "status" = TRUE WHERE "id" = $1`;
@@ -68,9 +59,6 @@ router.put('/:id', (req, res) => {
 			console.log(error);
 			res.sendStatus(500);
 		});
-
-
-
 })
 
 
