@@ -86,6 +86,16 @@ function renderToDOM(storedTasks){
         <td><button class="delete-btn">❌</button><td>
         </tr>
         `);
+        if(task.status === true){
+            $('.task-row').css("background-color", 'green')
+
+
+        }else if (task.status === false) {
+            $(".task-row").css("background-color", "grey");
+
+		} else {
+
+		}
 
     }
 
