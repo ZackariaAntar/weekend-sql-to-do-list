@@ -44,6 +44,7 @@ function postTask(){
 
 function updateTask(){
     let targetId =$(this).closest("tr").data("id")
+    $(this).closest('tr').css()
 
     $.ajax({
         method: 'PUT',
@@ -80,23 +81,17 @@ function renderToDOM(storedTasks){
     $("#task-body").val('');
     for (let task of storedTasks){
         $("#display-tasks").append(`
-        <tr class="task-row" data-id=${task.id}>
+        <tr id=${task.id} data-id=${task.id}>
         <td>${task.task_body}</td>
         <td><button class="edit-btn">✅</button><td>
         <td><button class="delete-btn">❌</button><td>
         </tr>
         `);
         if(task.status === true){
-            $('.task-row').css("background-color", 'green')
+            $(`#${task.id}`).css("background-color", 'green')
 
 
-        }else if (task.status === false) {
-            $(".task-row").css("background-color", "grey");
-
-		} else {
-
-		}
-
+        }
     }
 
 }
