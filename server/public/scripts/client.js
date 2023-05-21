@@ -36,6 +36,9 @@ function postTask(){
 		.then(function (response) {
 			console.log("added tasks");
 			getTasks();
+             $("#info").text(
+					"Click the check to mark your task as complete, or click the X to delete your task from the list."
+				);
 		})
 		.catch(function (error) {
 			console.log("Whoops, failed to post tasks", error);
