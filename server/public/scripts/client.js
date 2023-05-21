@@ -96,6 +96,7 @@ function renderToDOM(storedTasks){
         </tr>
         `);
 		if (task.status === true) {
+			//conditional set up to have jQuery change the background color of a table row based on if that object's value for the "status" column is true on the DB.
 			$(`#${task.id}`).css("background-color", "green");
 		}
 	}
