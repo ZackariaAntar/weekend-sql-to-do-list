@@ -19,6 +19,9 @@ SELECT * FROM "weekend-to-do-app" WHERE "id" = $1;
 INSERT INTO "weekend-to-do-app" ("task_body")
 VALUES ($1);
 
+DELETE FROM "weekend-to-do-app" WHERE "id" = $1;
+
+UPDATE "weekend-to-do-app" SET "status" = TRUE WHERE "id" = $1;
 
 
 
