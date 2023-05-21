@@ -30,7 +30,7 @@ main {
 
 }
 
-#task-body::placeholder{
+#task-body::placeholder {
     text-align: center;
     color: #3c025d5c;
 }
@@ -41,7 +41,7 @@ section {
     align-items: center;
     background-color: #a18bc3;
     padding: 1.5vw;
-    margin:0px;
+    margin: 0px;
     min-height: 86vh;
 
 }
@@ -63,11 +63,10 @@ section {
     background-color: #3c025d;
 }
 
-#task-table td{
+#task-table td {
     max-width: 15vw;
     overflow-wrap: break-word;
     padding: 1vw
-
 }
 
 #task-table th {
@@ -75,7 +74,7 @@ section {
 
 }
 
-#task-table tr td:first-child{
+#task-table tr td:first-child {
     text-align: left;
 
 }
@@ -86,7 +85,7 @@ section {
 }
 
 
-#submit{
+#submit {
     padding: .5em 1.5em;
     font-size: 2vh;
     margin-top: 2vh;
@@ -110,7 +109,7 @@ section {
     transform: translateY(-.5px);
 }
 
-.edit-btn{
+.edit-btn {
     background: transparent;
     border: 0px;
 
@@ -121,7 +120,7 @@ section {
     cursor: pointer
 }
 
-.delete-btn{
+.delete-btn {
     background: transparent;
     border: 0px;
 
@@ -131,4 +130,3 @@ section {
     transform: translateY(-3.5px);
     cursor: pointer
 }
-
